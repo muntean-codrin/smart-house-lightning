@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHouseLIghtning.Views.HomePage"
+             Title="{Binding Title}">
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="20,40,20,40">
+                <Label HorizontalOptions="StartAndExpand" FontSize="Large" >Auto Mode</Label>
+                <Switch x:Name="switchAutoMode" IsToggled="false" VerticalOptions="Start" HorizontalOptions="Start" OnColor="ForestGreen" Toggled="SwitchAutoMode_Toggled"/>
+            </StackLayout>
+
+            <ListView x:Name="LightsListView"
+                      ItemsSource="{Binding Items}"
+                        VerticalOptions="FillAndExpand"
+                        HasUnevenRows="true"
+                        IsPullToRefreshEnabled="true"
+                        CachingStrategy="RecycleElement"
+                      ItemSelected="LightsListView_ItemSelected">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell Text="{Binding Name}" Detail="{Binding Room}" ImageSource="{Binding Image}" />
+                        <!--<ViewCell>
+
+                            <StackLayout Padding="10">
+                                
+                                
+                                
+                                <Label Text="{Binding Name}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                                <Label Text="{Binding Room}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                            </StackLayout>
+                        </ViewCell>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

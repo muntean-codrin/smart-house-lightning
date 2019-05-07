@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHouseLIghtning.Views.ReceiverDetailPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label HorizontalOptions="Center" Text="Please select the room where the receiver is located. If you don't know where it is, you can press the button below." FontSize="Small"/>
+            <Button x:Name="locateButton" HorizontalOptions="Center" Text="Locate receiver" Clicked="Locate_Clicked"></Button>
+
+
+            <StackLayout Padding="0,40,0,20">
+                <Label HorizontalOptions="Center" FontSize="Small" Text="This receiver is between: "/>
+
+                <StackLayout HorizontalOptions="Fill" Orientation="Horizontal" Spacing="15" Padding="0,15,0,0" >
+
+                    <Picker HorizontalOptions="FillAndExpand" x:Name="RoomPicker1" SelectedIndexChanged="RoomPicker_SelectedIndexChanged" />
+                    <Label FontSize="Medium" HorizontalOptions="CenterAndExpand" Text="and"/>
+                    <Picker HorizontalOptions="FillAndExpand" x:Name="RoomPicker2" SelectedIndexChanged="RoomPicker_SelectedIndexChanged" />
+
+                </StackLayout>
+            </StackLayout>
+
+
+            
+            <Label HorizontalOptions="Center" x:Name="infoLabel" FontSize="Small"/>
+            <StackLayout x:Name="buttonsStackLayout"  IsVisible="False" Orientation="Horizontal" HorizontalOptions="Center" >
+                <Button Text="No, swap" Clicked="Swap_Clicked" Margin="10,10,10,10"></Button>
+                <Button Text="Yes"   Clicked="Save_Clicked" Margin="10,10,10,10"></Button>
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+
+
+</ContentPage>
